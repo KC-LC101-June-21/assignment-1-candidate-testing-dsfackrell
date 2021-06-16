@@ -25,7 +25,6 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  //candidateAnswer = input.question("1) " + question);  
   for(i = 0; i < questions.length; i++) {
     candidateAnswers.push(input.question((i + 1) + ") " + questions[i]));
   }
@@ -37,16 +36,12 @@ function gradeQuiz(candidateAnswers) {
   let grade = 0;  
   console.log(spacer);
   for(i = 0; i < questions.length; i++) {
-    //console.log(`For question ${i + 1}) you entered: ${candidateAnswers[i]}.`);
     console.log(`${i + 1}) ${questions[i]}`);
     console.log(`Your Answer: ${candidateAnswers[i]}`);
     console.log(`Correct Answer: ${correctAnswers[i]}`);
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
-      //console.log("That is the correct answer.");
       grade++;
-    } else {
-      //console.log(`Incorrect, the correct answer is: ${correctAnswers[i]}`);
-    }
+    } 
     console.log();
   }
   console.log(spacer);
