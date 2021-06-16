@@ -36,7 +36,7 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  let grade;  
+  let grade = 0;  
   console.log(spacer);
   for(i = 0; i < questions.length; i++) {
     console.log(`For question ${i + 1}) you entered: ${candidateAnswers[i]}.`);
