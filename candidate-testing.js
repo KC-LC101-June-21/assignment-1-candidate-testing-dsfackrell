@@ -36,11 +36,13 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+  let grade = 0;  
   console.log(spacer);
   for(i = 0; i < questions.length; i++) {
     console.log(`For question ${i + 1}) you entered: ${candidateAnswers[i]}.`);
-    if (candidateAnswers[i] === correctAnswers[i]) {
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
       console.log("That is the correct answer.");
+      grade++;
     } else {
       console.log(`Incorrect, the correct answer is: ${correctAnswers[i]}`);
     }
@@ -48,8 +50,7 @@ function gradeQuiz(candidateAnswers) {
   }
   console.log(spacer);
 
-  let grade;  
-
+  grade = grade / questions.length * 100;
   return grade;
 }
 
@@ -61,7 +62,14 @@ function runProgram() {
   console.log(spacer);
   
   askQuestion();
-  gradeQuiz(this.candidateAnswers);
+  let finalGrade = gradeQuiz(this.candidateAnswers);
+
+  console.log("Overall Grade: " + finalGrade + "%");
+  if(finalGrade < 80) {
+    console.log("Status: FAILED");
+  } else {
+    console.log("Status: PASSED");
+  }
 }
 
 // Don't write any code below this line //
